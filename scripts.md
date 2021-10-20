@@ -12,6 +12,7 @@
     uptime -p>> logfile.txt
 
     cat logfile.txt
+    
     ```
     
     
