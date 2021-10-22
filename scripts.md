@@ -31,8 +31,14 @@ grep ">" test.fa | wc -l  100sequences
 10. grep ">" test.fa > identifiers.txt
 11. sed s/A/a/g test.fa
 12. setterm -linewrap off
-13. 
-14. 
+13.     grep -v PREDICTED: identifiers.txt > notpredicted.txt
+        grep  PREDICTED: identifiers.txt > predicted.txt
+        cut -d ' ' -f 2,3 notpredicted.txt > species.txt
+        cut -d ' ' -f 3,4 predicted.txt >> species.txt
+        cut -d ' ' -f 2 species.txt > sname.txt
+
+          
+14. sort | uniq -c sname.txt
 15.  
 
     #this scripts count intergers from 1 to 30 in different lines
@@ -51,7 +57,8 @@ grep ">" test.fa | wc -l  100sequences
     
  16. $ touch trial{1..20}.data
  17. it throws an error saying- expr: division by zero because any number divided by 0 is undefined
- 18. 
+ 18. command 2> error.txt 1> output.txt
+
 
     
 
